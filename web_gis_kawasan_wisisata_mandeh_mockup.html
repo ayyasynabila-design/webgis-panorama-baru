@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web GIS Panorama Baru Bukittinggi</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-sky-800 text-white p-6 shadow">
+    <h1 class="text-2xl font-bold">Web GIS Destinasi Wisata Panorama Baru</h1>
+    <p class="text-sm">Kota Bukittinggi, Sumatera Barat</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="bg-sky-600 text-white px-6 py-3 flex gap-6">
+    <a href="#beranda" class="hover:underline">Beranda</a>
+    <a href="#peta" class="hover:underline">Peta Lokasi</a>
+    <a href="#informasi" class="hover:underline">Informasi Wisata</a>
+    <a href="#kontak" class="hover:underline">Kontak</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="p-6 space-y-10">
+
+    <!-- Beranda -->
+    <section id="beranda" class="bg-white p-6 rounded-xl shadow">
+      <h2 class="text-xl font-semibold mb-3">Beranda</h2>
+      <p>
+        Panorama Baru merupakan salah satu destinasi wisata unggulan di Kota
+        Bukittinggi yang menawarkan pemandangan langsung ke Ngarai Sianok.
+        Kawasan ini menjadi titik favorit wisatawan untuk menikmati panorama
+        alam dan aktivitas fotografi.
+      </p>
+    </section>
+
+    <!-- Peta -->
+    <section id="peta" class="bg-white p-6 rounded-xl shadow">
+      <h2 class="text-xl font-semibold mb-3">Peta Lokasi Panorama Baru</h2>
+      <div id="map" class="w-full h-[400px] rounded-lg"></div>
+    </section>
+
+    <!-- Informasi -->
+    <section id="informasi" class="bg-white p-6 rounded-xl shadow">
+      <h2 class="text-xl font-semibold mb-3">Informasi Wisata</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Nama Destinasi:</strong> Panorama Baru</li>
+        <li><strong>Lokasi:</strong> Kelurahan Kayu Kubu, Kota Bukittinggi</li>
+        <li><strong>Jenis Wisata:</strong> Wisata Alam & Panorama</li>
+        <li><strong>Daya Tarik:</strong> View Ngarai Sianok, gardu pandang</li>
+        <li><strong>Fasilitas:</strong> Area parkir, jalur pejalan kaki, spot foto</li>
+      </ul>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak" class="bg-white p-6 rounded-xl shadow">
+      <h2 class="text-xl font-semibold mb-3">Kontak</h2>
+      <p>Dinas Pariwisata Kota Bukittinggi</p>
+      <p>Email: dispar@bukittinggikota.go.id</p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-sky-800 text-white text-center p-4 mt-10">
+    <p class="text-sm">© 2025 Web GIS Destinasi Wisata Panorama Baru</p>
+  </footer>
+
+  <!-- Leaflet Map Script -->
+  <script>
+    const map = L.map('map').setView([-0.2947, 100.3660], 16);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Marker Panorama Baru
+    L.marker([-0.2947, 100.3660])
+      .addTo(map)
+      .bindPopup('<b>Panorama Baru</b><br>View Ngarai Sianok');
+  </script>
+
+</body>
+</html>
